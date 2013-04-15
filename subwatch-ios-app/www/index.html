@@ -18,6 +18,40 @@
     under the License.
 -->
 <html>
+	<style type="text/css">
+		.button {
+			-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+			-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+			box-shadow:inset 0px 1px 0px 0px #ffffff;
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+			background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+			background-color:#ededed;
+			-moz-border-radius:6px;
+			-webkit-border-radius:6px;
+			border-radius:6px;
+			border:1px solid #dcdcdc;
+			display:inline-block;
+			color:#777777;
+			font-family:arial;
+			font-size:15px;
+			font-weight:bold;
+			padding:6px 24px;
+			text-decoration:none;
+			text-shadow:1px 1px 0px #ffffff;
+		}.button:hover {
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+			background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+			background-color:#dfdfdf;
+		}.button:active {
+			position:relative;
+			top:1px;
+		}
+		.section {
+			margin: 10px;
+		}
+	</style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -27,14 +61,27 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
+            <h1>PhoneGap Geofencing Test</h1>
+            <!--<div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
+            </div>-->
+            <div class="location section">
+                <button class="button" onclick="getLocation()">Get Location</button>
+                <script type="text/javascript">
+                	function getLocation() {
+	                	
+                	}
+                </script>
+                <div id="locationString">No Location</div>
+            </div>
+            <div class="setGeofence">
+            	<button class="button" onclick="setGeofence()">Set Geofence Here</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova-2.3.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/plugins/Geofencing.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
